@@ -1,0 +1,47 @@
+body {
+  background-color: burlywood;
+}
+
+
+.content {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+}
+
+.title {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  font-size: x-large;
+  font-family: Andalus;
+  margin-bottom: 50px;
+}
+.board {
+  width: 500px;
+  height: 500px;
+  display:grid;
+  border: 1px solid black;
+  grid-column: 2/3;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  bottom: 250px;
+  left: 350px;
+  gap:20px;
+  width: fit-content;
+}
+
+button {
+  font-family: Andalus;
+  font-size: larger ;
+}
+
+#gridAmount {
+  position: relative;
+  bottom: 550px;
+  width: fit-content;
+  height: fit-content;
+}
