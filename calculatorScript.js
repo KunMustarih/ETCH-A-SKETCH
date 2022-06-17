@@ -2,23 +2,42 @@ function display() {
     let content = document.querySelector(".screen");
     let buttons = document.querySelectorAll("button");
 
-    let operation;
+    let opp = document.getElementsByClassName("operation");
+    opp.disabled = true;
+
+
+    let operation = []
     let number;
     let first;
     let second;
     buttons.forEach((button) =>
         button.addEventListener('click',function () {
+
             content.textContent += this.value;
 
             if(this.className === "operation") {
-                operation = this.value;
+                operation.push(this.value);
             }
 
+            if(this.value === "clear") {
+                content.innerHTML = '';
+                operation = [];
+            }
+
+            console.log(operation);
             if(this.value === "=") {
                 number = content.textContent.split(operation);
                 first = number[0];
                 second = number[1].slice(0,-1);
-                operate(first,second, operation);
+                operate(first,second, operation.pop());
+            }
+
+            if(operation.length > 1) {
+               number = content.textContent.slice(0,-1).split(operation[0]);
+               first = number[0];
+               second = number[1];
+               operate(first,second,operation.shift());
+               content.textContent+=operation[0];
             }
 
     }));
