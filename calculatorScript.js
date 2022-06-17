@@ -10,8 +10,9 @@ function display() {
     let second;
     buttons.forEach((button) =>
         button.addEventListener('click',function () {
-            content.textContent += this.value;
-
+            if(this.value !== "=") {
+                content.textContent += this.value;
+            }
 
             if(this.className === "operation") {
                 operation.push(this.value);
@@ -25,7 +26,7 @@ function display() {
             if(this.value === "=") {
                 number = content.textContent.split(operation);
                 first = number[0];
-                second = number[1].slice(0,-1);
+                second = number[1]
                 operate(first,second, operation.pop());
             }
 
