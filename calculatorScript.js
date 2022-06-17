@@ -1,19 +1,17 @@
+let operation = []
+
 function display() {
     let content = document.querySelector(".screen");
     let buttons = document.querySelectorAll("button");
 
-    let opp = document.getElementsByClassName("operation");
-    opp.disabled = true;
 
-
-    let operation = []
     let number;
     let first;
     let second;
     buttons.forEach((button) =>
         button.addEventListener('click',function () {
-
             content.textContent += this.value;
+
 
             if(this.className === "operation") {
                 operation.push(this.value);
@@ -24,7 +22,6 @@ function display() {
                 operation = [];
             }
 
-            console.log(operation);
             if(this.value === "=") {
                 number = content.textContent.split(operation);
                 first = number[0];
@@ -72,14 +69,15 @@ function multiply (a,b) {
 
 function divide (a,b) {
     let content = document.querySelector(".screen");
-    let result = a / b;
+    let result = (a / b).toFixed(2);
 
     content.textContent = result.toString();
 }
 
 function operate(a,b, operator) {
-    a = parseInt(a);
-    b = parseInt(b);
+    let content = document.querySelector(".screen");
+    a = parseFloat(a);
+    b = parseFloat(b);
 
 
     if(operator === "+") {
@@ -97,6 +95,8 @@ function operate(a,b, operator) {
     if(operator === "÷") {
         if(b === 0) {
             alert("Cannot divide with zero");
+            content.innerHTML = '';
+            operation = [];
         }
         else {
             divide(a,b)
