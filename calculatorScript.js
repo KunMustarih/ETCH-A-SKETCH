@@ -5,17 +5,21 @@ function display() {
     let buttons = document.querySelectorAll("button");
 
 
+
     let number;
     let first;
     let second;
     buttons.forEach((button) =>
         button.addEventListener('click',function () {
-            if(this.value !== "=") {
+            let x = (parseInt(content.textContent[content.textContent.length -1]))
+
+            if(this.value !== "=" ) {
                 content.textContent += this.value;
             }
 
-            if(this.className === "operation") {
+            if(this.className === "operation" && Number.isInteger(x)) {
                 operation.push(this.value);
+                console.log(operation);
             }
 
             if(this.value === "clear") {
