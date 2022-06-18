@@ -1,13 +1,41 @@
+body {
+  background-color: antiquewhite;
+}
+
+.screen {
+  border: 1px solid;
+  height: 100px;
+  background-color: grey;
+  font-size: xx-large;
+}
+
 h1 {
   display: flex;
   justify-content: center;
   align-content: center;
+  color: darkslategrey;
 }
 
 .content {
-  display: grid;
-  border: 1px solid black;
-  width: 600px;
-  height: 500px;
+  border: 10px solid  lightslategray;
+  width: fit-content;
+  height: fit-content;
   margin: 0 auto;
+  background-color: black;
+}
+
+.buttons {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+button {
+  height: 90px;
+  width: 90px;
+  font-size: xx-large;
+}
+
+.equals {
+  grid-column: 1/5;
+  width: auto;
 }
